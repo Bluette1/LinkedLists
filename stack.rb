@@ -7,7 +7,7 @@ class Node
   end
 end
 
-class LinkedList
+module LinkedList
   # setup head and tail
   @head = nil
   @tail = nil
@@ -115,32 +115,35 @@ class LinkedList
   end
 end
 
-list = LinkedList.new
+class Stack
+  include LinkedList
 
-# list.add(3)
-# list.add(5)
-# puts list.get(1)
+  def push(number)
+    # We push items onto the stack at the front of the list
+    add_at(0, number)
+  end
+
+  def pop
+    # We pop items off the stack from the front of the list(index 0)
+    item = get(0)
+    remove(0)
+    item
+  end
+end
+
+stack = Stack.new
+stack.push(3)
+stack.push(5)
+puts stack.pop
 # => 5
 
-list.add(3)
-list.add(5)
-list.add_at(1, 11)
-list.add_at(0, 13)
-list.add(6)
-list.add(7)
-list.add(8)
+stack.push(2)
+stack.push(7)
+puts stack.pop
+# => 7
 
-list.print_all
+puts stack.pop
+# => 2
 
-# list.remove(0)
-# list.remove(4)
-list.remove(6)
-puts '::::::::::::::::::::::;;;;;;;;;;::::'
-
-list.print_all
-
-# puts list.get(2)
-# => 11
-
-# puts list.get(3)
-# => 5
+puts stack.pop
+# => 3

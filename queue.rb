@@ -7,7 +7,7 @@ class Node
   end
 end
 
-class LinkedList
+module LinkedList
   # setup head and tail
   @head = nil
   @tail = nil
@@ -78,7 +78,7 @@ class LinkedList
     end
   end
 
-  def remove(index)
+  def remove_at(index)
     # Either we are removing from the front, in the middle, or at the back of the list
 
     if index.zero?
@@ -115,32 +115,40 @@ class LinkedList
   end
 end
 
-list = LinkedList.new
+class Queue
+  include LinkedList
 
-# list.add(3)
-# list.add(5)
-# puts list.get(1)
+  # We add items to the queue at the back of the list
+  # The add method already exists in the linked list
+
+  def remove
+    # We pop items off the queue from the front of the list(index 0)
+    item = -1
+    unless @head.nil?
+      item = get(0)
+      remove_at(0)
+    end
+    item
+  end
+end
+
+queue = Queue.new
+
+queue.add(3)
+queue.add(5)
+puts queue.remove
+# => 3
+
+queue.add(2)
+queue.add(7)
+puts queue.remove
 # => 5
 
-list.add(3)
-list.add(5)
-list.add_at(1, 11)
-list.add_at(0, 13)
-list.add(6)
-list.add(7)
-list.add(8)
+puts queue.remove
+# => 2
 
-list.print_all
+puts queue.remove
+# => 7
 
-# list.remove(0)
-# list.remove(4)
-list.remove(6)
-puts '::::::::::::::::::::::;;;;;;;;;;::::'
-
-list.print_all
-
-# puts list.get(2)
-# => 11
-
-# puts list.get(3)
-# => 5
+puts queue.remove
+# => -1
