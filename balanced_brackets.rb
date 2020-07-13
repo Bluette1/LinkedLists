@@ -140,10 +140,6 @@ def balanced_brackets?(string)
   result = true
   length = string.length
 
-  if length == 1
-    result = false
-  end
-
   i = 0
   while i < length
     bracket = string[i]
