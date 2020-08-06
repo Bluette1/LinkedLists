@@ -1,4 +1,4 @@
-require_relative "./list_node"
+require_relative './list_node'
 
 class LinkedList
   # setup head and tail
@@ -114,7 +114,7 @@ class LinkedList
     end
   end
 
-  def empty? # one bracket is unnested
+  def empty?
     @head.nil?
   end
 end

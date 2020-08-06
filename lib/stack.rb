@@ -1,9 +1,8 @@
-require_relative "./linked_list"
+require_relative './linked_list'
 
 class Stack < LinkedList
-
   def push(number)
-    # We push items onto the stack at the front of the list - 
+    # We push items onto the stack at the front of the list -
     # think of a stack of plates
     add_at(0, number)
   end
@@ -21,14 +20,11 @@ class Stack < LinkedList
     min = next_node.value
 
     until next_node.nil?
-      if next_node.value < min
-        min = next_node.value
-      end
+      min = next_node.value if next_node.value < min
       next_node = next_node.next_node
     end
     min
   end
-
 end
 
 stack = Stack.new
