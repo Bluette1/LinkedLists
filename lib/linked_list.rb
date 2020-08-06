@@ -30,11 +30,13 @@ class LinkedList
   def print_all
     next_node = @head
     idx = 0
+    result = ''
     until next_node.nil?
-      p idx.to_s + ': ' + next_node.value.to_s
+      result += "#{next_node.value} "
       next_node = next_node.next_node
       idx += 1
     end
+    result.strip
   end
 
   def add_at(index, item)
@@ -116,33 +118,3 @@ class LinkedList
     @head.nil?
   end
 end
-
-list = LinkedList.new
-
-# list.add(3)
-# list.add(5)
-# puts list.get(1)
-# => 5
-
-list.add(3)
-list.add(5)
-list.add_at(1, 11)
-list.add_at(0, 13)
-list.add(6)
-list.add(7)
-list.add(8)
-
-list.print_all
-
-# list.remove(0)
-# list.remove(4)
-list.remove(6)
-puts '::::::::::::::::::::::;;;;;;;;;;::::'
-
-list.print_all
-
-# puts list.get(2)
-# => 11
-
-# puts list.get(3)
-# => 5
