@@ -7,7 +7,7 @@ env:
 
 jobs:
   rubocop:
-    name: Rubocop
+    name: Rubocop/Tests
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -23,6 +23,6 @@ jobs:
       - name: Install dependencies
         run: |
           gem install bundler
-          bundler install
+          bundle
       - name: Tests Report
         run: rake
