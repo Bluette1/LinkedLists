@@ -21,6 +21,8 @@ jobs:
       - name: Rubocop Report
         run: rubocop --color
       - name: Install dependencies
-        run: bundle
+        run: |
+          gem install bundler
+          bundler install
       - name: Tests Report
         run: rake
