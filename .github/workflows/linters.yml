@@ -20,5 +20,7 @@ jobs:
           [ -f .rubocop.yml ] || wget https://raw.githubusercontent.com/microverseinc/linters-config/master/ror/.rubocop.yml
       - name: Rubocop Report
         run: rubocop --color
+      - name: Install dependencies
+        run: bundle
       - name: Tests Report
-        run: rspec
+        run: rake
