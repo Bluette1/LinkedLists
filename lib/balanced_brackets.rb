@@ -5,21 +5,16 @@ class BalancedBrackets
   def balanced_brackets?(string)
     open_bracs = Stack.new
     result = true
-    length = string.length
 
     i = 0
-    while i < length
+    while i < string.length
       bracket = string[i]
       #  We only push open brackets onto the stack
       if ['(', '{', '['].include?(bracket)
         open_bracs.push(bracket)
-      else
-        begin
-          break unless get_cases(bracket, open_bracs)
-        rescue StandardError
-          result = false
-          break
-        end
+      elsif open_bracs.empty? || !get_cases(bracket, open_bracs)
+        result = false
+        break
       end
       i += 1
     end
@@ -29,7 +24,7 @@ class BalancedBrackets
     result
   end
 
-  def get_cases(bracket, open_bracs)
+  def get_cases(bracket, open_bracs) # rubocop:todo Metrics/CyclomaticComplexity
     result = true
     case bracket
     when ')'
@@ -43,7 +38,6 @@ class BalancedBrackets
   end
 
   def check_bracket(open_bracs, bracket)
-    # the bracket string is unnested
     open_bracs.pop == bracket
   end
 end

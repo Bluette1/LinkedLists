@@ -16,24 +16,3 @@ class MyQueue < LinkedList
     item
   end
 end
-
-queue = MyQueue.new
-
-queue.add(3)
-queue.add(5)
-puts queue.take_off
-# => 3
-
-queue.add(2)
-queue.add(7)
-puts queue.take_off
-# => 5
-
-puts queue.take_off
-# => 2
-
-puts queue.take_off
-# => 7
-
-puts queue.take_off
-# => -1
