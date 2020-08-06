@@ -47,7 +47,8 @@ module LinkedList
   def add_at(index, item)
     new_node = Node.new(item)
 
-    # Either we are adding at the front, in the middle, or at the back of the list
+    # Either we are adding at the front, in the middle,
+    # or at the back of the list
 
     if index.zero?
       # Add the new node to the front of the list
@@ -66,7 +67,8 @@ module LinkedList
       # idx = index - 1
       # insert the new node after this position
 
-      # Check if the next node is nil, meaning we're inserting at the end of the list
+      # Check if the next node is nil, meaning we're inserting at
+      #  the end of the list
       if next_node.next_node.nil?
         # insert the node at the end of the list / tail
         next_node.next_node = new_node
@@ -79,7 +81,8 @@ module LinkedList
   end
 
   def remove_at(index)
-    # Either we are removing from the front, in the middle, or at the back of the list
+    # Either we are removing from the front, in the middle,
+    #  or at the back of the list
 
     if index.zero?
       # Remove the node from the front of the list
@@ -99,11 +102,13 @@ module LinkedList
       # idx = index - 1
       # delete the node after this position
 
-      # Check if the next node is nil, meaning we're deleting a node which does not exist
+      # Check if the next node is nil, meaning we're deleting a
+      #  node which does not exist
       if next_node.next_node.nil?
         puts "Can't delete an inexistent node"
 
-      # Check if the next node is the last node, meaning we're deleting at the end of the list
+      # Check if the next node is the last node,
+      #  meaning we're deleting at the end of the list
       elsif next_node.next_node.next_node.nil?
         next_node.next_node = nil
         @tail = next_node
