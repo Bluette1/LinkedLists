@@ -5,7 +5,7 @@ class Node
     @value = value
     @next_node = next_node
   end
-  end
+end
 
 module LinkedList
   # setup head and tail
@@ -143,7 +143,6 @@ def balanced_brackets?(string)
   i = 0
   while i < length
     bracket = string[i]
-
     #  We only push open brackets onto the stack
     if bracket == '(' || bracket == '{' || bracket == '['
       open_bracs.push(bracket)

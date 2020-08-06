@@ -1,4 +1,4 @@
-class ListNode
+class Node
   attr_accessor :value, :next_node
 
   def initialize(value, next_node = nil)
@@ -13,7 +13,7 @@ module LinkedList
   @tail = nil
 
   def add(number)
-    new_node = ListNode.new(number)
+    new_node = Node.new(number)
     if @head.nil?
       @head = new_node
     else
@@ -45,7 +45,7 @@ module LinkedList
   end
 
   def add_at(index, item)
-    new_node = ListNode.new(item)
+    new_node = Node.new(item)
 
     # Either we are adding at the front, in the middle, or at the back of the list
 
@@ -130,3 +130,20 @@ class Stack
     item
   end
 end
+
+stack = Stack.new
+stack.push(3)
+stack.push(5)
+puts stack.pop
+# => 5
+
+stack.push(2)
+stack.push(7)
+puts stack.pop
+# => 7
+
+puts stack.pop
+# => 2
+
+puts stack.pop
+# => 3
