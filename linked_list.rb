@@ -1,11 +1,4 @@
-class Node
-  attr_accessor :value, :next_node
-
-  def initialize(value, next_node = nil)
-    @value = value
-    @next_node = next_node
-  end
-end
+require_relative "./list_node"
 
 class LinkedList
   # setup head and tail
@@ -13,7 +6,7 @@ class LinkedList
   @tail = nil
 
   def add(number)
-    new_node = Node.new(number)
+    new_node = ListNode.new(number)
     if @head.nil?
       @head = new_node
     else
@@ -45,7 +38,7 @@ class LinkedList
   end
 
   def add_at(index, item)
-    new_node = Node.new(item)
+    new_node = ListNode.new(item)
 
     # Either we are adding at the front, in the
     #  middle, or at the back of the list
@@ -117,6 +110,10 @@ class LinkedList
 
       end
     end
+  end
+
+  def empty? # one bracket is unnested
+    @head.nil?
   end
 end
 
