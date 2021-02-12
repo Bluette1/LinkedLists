@@ -31,11 +31,13 @@ class LinkedList
   def print_all
     next_node = @head
     idx = 0
+    result = ''
     until next_node.nil?
-      p idx.to_s + ': ' + next_node.value.to_s
+      result += "#{next_node.value} "
       next_node = next_node.next_node
       idx += 1
     end
+    result.strip
   end
 
   def add_at(index, item)
