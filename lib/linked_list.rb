@@ -75,14 +75,12 @@ class LinkedList
     end
   end
 
+  # rubocop:disable Metrics/PerceivedComplexity
   def remove(index)
     # Either we are removing from the front, in the middle, or at the back of the list
-
+    # Remove the node from the front of the list
     if index.zero?
-      # Remove the node from the front of the list
-      new_head = @head.next_node
-      @head.next_node = nil
-      @head = new_head
+      remove_first
     else
       next_node = @head
       idx = 0
@@ -110,8 +108,27 @@ class LinkedList
       end
     end
   end
+  # rubocop:enable Metrics/PerceivedComplexity
 
   def empty?
     @head.nil?
+  end
+
+  def remove_last
+    if @head == @tail
+      @head = @tail = nil
+    else
+      next_node = @head
+      next_node = next_node.next_node while next_node.next_node != @tail
+      @tail = next_node
+      next_node.next_node = nil
+    end
+  end
+
+  def remove_first
+    new_head = @head.next_node
+    @head.next_node = nil
+    @tail = new_head if @head == @tail
+    @head = new_head
   end
 end
