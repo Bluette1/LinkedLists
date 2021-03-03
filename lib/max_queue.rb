@@ -21,7 +21,7 @@ class MaxQueue < MyQueue
 
   def take_off
     value = super
-    @max.take_off if @max.head == value
+    @max.take_off if @max.head.value == value
     value
   end
 
