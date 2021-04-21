@@ -7,7 +7,7 @@ class MyQueue < LinkedList
   # The add method already exists in the linked list
 
   def take_off
-    # We pop items off the queue from the front of the list(index 0)
+    # We take items off the queue from the front of the list(index 0)
     item = -1
     unless @head.nil?
       item = get(0)
@@ -15,4 +15,8 @@ class MyQueue < LinkedList
     end
     item
   end
+
+  attr_reader :tail
+
+  attr_reader :head
 end

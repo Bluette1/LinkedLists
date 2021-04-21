@@ -21,15 +21,15 @@ class MaxStack < Stack
   end
 
   def pop
-    minimum = super
+    maximum = super
     @max.pop
-    minimum
+    maximum
   end
 
   def maximum_value
-    minimum = @max.pop
-    @max.push(minimum)
-    minimum
+    maximum = @max.pop
+    @max.push(maximum)
+    maximum
   end
 end
 
